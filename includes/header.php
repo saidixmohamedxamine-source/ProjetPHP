@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="<?php echo SITE_URL; ?>assets/css/layout.css">
     <link rel="stylesheet" href="<?php echo SITE_URL; ?>assets/css/components.css">
     <link rel="stylesheet" href="<?php echo SITE_URL; ?>css/styles.css">
+    <?php if (isset($page_title) && $page_title === 'Home'): ?>
+        <link rel="stylesheet" href="<?php echo SITE_URL; ?>assets/css/pages/home.css">
+    <?php endif; ?>
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">

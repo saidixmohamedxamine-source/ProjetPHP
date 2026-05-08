@@ -96,9 +96,9 @@ include '../includes/header.php';
             <a href="skills.php"><i class="fas fa-book"></i> Skills</a>
             <a href="help_requests.php" class="active"><i class="fas fa-question-circle"></i> Help Requests</a>
             <a href="create_request.php"><i class="fas fa-plus-circle"></i> Create Request</a>
-            <a href="#"><i class="fas fa-award"></i> Badges &amp; Levels</a>
-            <a href="#"><i class="fas fa-search"></i> Search</a>
-            <a href="#"><i class="fas fa-chart-bar"></i> Statistics</a>
+            <a href="badges_levels.php"><i class="fas fa-award"></i> Badges &amp; Levels</a>
+            <a href="search.php"><i class="fas fa-search"></i> Search</a>
+            <a href="statistics.php"><i class="fas fa-chart-bar"></i> Statistics</a>
         </nav>
 
         <a href="../auth/logout.php" class="sidebar-logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
