@@ -627,6 +627,37 @@ body {
   background-color: #eef2ff;
 }
 
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 16px;
+  padding: 14px 24px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.button.primary {
+  background-color: #6366f1;
+  color: white;
+}
+
+.button.primary:hover {
+  background-color: #4f46e5;
+}
+
+.button.secondary {
+  background-color: #eef2ff;
+  color: #4338ca;
+}
+
+.button.secondary:hover {
+  background-color: #e0e7ff;
+}
+
 .create-request-button {
   min-width: 160px;
 }

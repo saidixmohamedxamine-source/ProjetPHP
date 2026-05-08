@@ -52,8 +52,8 @@ include '../includes/header.php';
             <a href="index.php"><i class="fas fa-home"></i> Dashboard</a>
             <a href="profile.php"><i class="fas fa-user"></i> Profile</a>
             <a href="skills.php" class="active"><i class="fas fa-book"></i> Skills</a>
-            <a href="#"><i class="fas fa-question-circle"></i> Help Requests</a>
-            <a href="#"><i class="fas fa-plus-circle"></i> Create Request</a>
+            <a href="help_requests.php"><i class="fas fa-question-circle"></i> Help Requests</a>
+            <a href="create_request.php"><i class="fas fa-plus-circle"></i> Create Request</a>
             <a href="#"><i class="fas fa-award"></i> Badges &amp; Levels</a>
             <a href="#"><i class="fas fa-search"></i> Search</a>
             <a href="#"><i class="fas fa-chart-bar"></i> Statistics</a>
