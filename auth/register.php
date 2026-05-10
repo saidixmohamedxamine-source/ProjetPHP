@@ -16,7 +16,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = isset($_POST['email']) ? trim($_POST['email']) : '';
     $password = isset($_POST['password']) ? $_POST['password'] : '';
     $confirm_password = isset($_POST['confirm_password']) ? $_POST['confirm_password'] : '';
-    $role = isset($_POST['role']) ? trim($_POST['role']) : 'Student';
+    $role = isset($_POST['role']) ? trim($_POST['role']) : 'Stagiaire';
+    $allowed_roles = ['Stagiaire', 'Formateur', 'Administrateur'];
+    if (!in_array($role, $allowed_roles, true)) {
+        $role = 'Stagiaire';
+    }
 
     $name_parts = preg_split('/\s+/', $full_name, 2, PREG_SPLIT_NO_EMPTY);
     $first_name = $name_parts[0] ?? '';
@@ -74,8 +78,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
 
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-            $insert_stmt = $connection->prepare('INSERT INTO users (username, email, password, first_name, last_name) VALUES (?, ?, ?, ?, ?)');
-            $insert_stmt->bind_param('sssss', $username, $email, $hashed_password, $first_name, $last_name);
+            $insert_stmt = $connection->prepare('INSERT INTO users (username, email, password, first_name, last_name, role) VALUES (?, ?, ?, ?, ?, ?)');
+            $insert_stmt->bind_param('ssssss', $username, $email, $hashed_password, $first_name, $last_name, $role);
 
             if ($insert_stmt->execute()) {
                 $success = 'Account created successfully! Redirecting to login...';
@@ -222,9 +226,9 @@ body {
             <div class="form-group">
                 <label for="role">Role</label>
                 <select id="role" name="role">
-                    <option value="Student" <?php echo isset($role) && $role === 'Student' ? 'selected' : ''; ?>>Student (Stagiaire)</option>
-                    <option value="Mentor" <?php echo isset($role) && $role === 'Mentor' ? 'selected' : ''; ?>>Mentor</option>
-                    <option value="Instructor" <?php echo isset($role) && $role === 'Instructor' ? 'selected' : ''; ?>>Instructor</option>
+                    <option value="Stagiaire" <?php echo isset($role) && $role === 'Stagiaire' ? 'selected' : ''; ?>>Stagiaire</option>
+                    <option value="Formateur" <?php echo isset($role) && $role === 'Formateur' ? 'selected' : ''; ?>>Formateur</option>
+                    <option value="Administrateur" <?php echo isset($role) && $role === 'Administrateur' ? 'selected' : ''; ?>>Administrateur</option>
                 </select>
             </div>
 

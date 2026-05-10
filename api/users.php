@@ -41,7 +41,7 @@ function getUsers() {
         // Get specific user
         $user_id = intval($_GET['id']);
         
-        $sql = "SELECT id, username, email, first_name, last_name, bio FROM users WHERE id = ?";
+        $sql = "SELECT id, username, email, first_name, last_name, bio, role FROM users WHERE id = ?";
         $stmt = $db->prepare($sql);
         $stmt->bind_param('i', $user_id);
         $stmt->execute();
@@ -55,7 +55,7 @@ function getUsers() {
         }
     } else {
         // Get all users
-        $sql = "SELECT id, username, email, first_name, last_name FROM users LIMIT 50";
+        $sql = "SELECT id, username, email, first_name, last_name, role FROM users LIMIT 50";
         $result = $db->query($sql);
         
         $users = [];
@@ -88,11 +88,16 @@ function createUser() {
     $password = password_hash($data['password'], PASSWORD_DEFAULT);
     $first_name = isset($data['first_name']) ? $data['first_name'] : '';
     $last_name = isset($data['last_name']) ? $data['last_name'] : '';
+    $role = isset($data['role']) ? trim($data['role']) : 'Stagiaire';
+    $allowed_roles = ['Stagiaire', 'Formateur', 'Administrateur'];
+    if (!in_array($role, $allowed_roles, true)) {
+        $role = 'Stagiaire';
+    }
     
-    $sql = "INSERT INTO users (username, email, password, first_name, last_name) 
-            VALUES (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO users (username, email, password, first_name, last_name, role) 
+            VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = $db->prepare($sql);
-    $stmt->bind_param('sssss', $username, $email, $password, $first_name, $last_name);
+    $stmt->bind_param('ssssss', $username, $email, $password, $first_name, $last_name, $role);
     
     if ($stmt->execute()) {
         http_response_code(201);

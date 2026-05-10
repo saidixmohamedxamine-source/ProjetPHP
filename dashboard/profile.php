@@ -34,18 +34,20 @@ $user = [
     'last_name' => '',
     'username' => '',
     'email' => '',
+    'role' => 'Stagiaire',
 ];
 
-if ($stmt = $connection->prepare('SELECT username, email, first_name, last_name FROM users WHERE id = ?')) {
+if ($stmt = $connection->prepare('SELECT username, email, first_name, last_name, role FROM users WHERE id = ?')) {
     $stmt->bind_param('i', $user_id);
     $stmt->execute();
-    $stmt->bind_result($username, $email, $first_name, $last_name);
+    $stmt->bind_result($username, $email, $first_name, $last_name, $role);
     if ($stmt->fetch()) {
         $user = [
             'first_name' => $first_name ?: 'User',
             'last_name' => $last_name ?: '',
             'username' => $username,
             'email' => $email,
+            'role' => $role ?: 'Student',
         ];
     }
     $stmt->close();
@@ -146,7 +148,10 @@ include '../includes/header.php';
                             <?php echo strtoupper(substr($user['first_name'], 0, 1) . substr($user['last_name'], 0, 1)); ?>
                         </div>
                         <div class="profile-name"><?php echo htmlspecialchars(trim($user['first_name'] . ' ' . $user['last_name'])); ?></div>
-                        <div class="profile-username">@<?php echo htmlspecialchars($user['username'] ?: 'profile'); ?></div>
+                        <div class="profile-username">
+                            @<?php echo htmlspecialchars($user['username'] ?: 'profile'); ?>
+                            <span class="profile-role"><?php echo htmlspecialchars($user['role']); ?></span>
+                        </div>
                     </div>
 
                     <div class="profile-rating">
