@@ -10,6 +10,9 @@ $body_class = '';
 if (in_array(($page_title ?? ''), ['Login', 'Register'], true)) {
     $body_class = 'auth-body';
 }
+if (($page_title ?? '') === 'Home') {
+    $body_class = 'home-body';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,6 +48,6 @@ if (in_array(($page_title ?? ''), ['Login', 'Register'], true)) {
     <!-- Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body<?php echo $body_class ? ' class="' . $body_class . '"' : ''; ?>>

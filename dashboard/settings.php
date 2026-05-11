@@ -30,7 +30,8 @@ include '../includes/header.php';
         <main class="app-content">
             <div class="page-header">
                 <div>
-                    <h1 class="page-title">Account Settings</h1>
+                    <span class="eyebrow">General</span>
+                    <h1 class="page-title"><span class="accent">Account</span> settings</h1>
                     <p class="page-subtitle">Manage your profile, privacy, and notifications.</p>
                 </div>
             </div>

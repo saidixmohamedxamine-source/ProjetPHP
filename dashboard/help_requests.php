@@ -92,7 +92,8 @@ include '../includes/header.php';
         <main class="app-content">
             <div class="page-header">
                 <div>
-                    <h1 class="page-title">Help Requests</h1>
+                    <span class="eyebrow">Community</span>
+                    <h1 class="page-title"><span class="accent">Help</span> requests</h1>
                     <p class="page-subtitle">Browse and respond to students seeking assistance.</p>
                 </div>
                 <div class="help-actions-row">

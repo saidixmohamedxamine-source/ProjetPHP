@@ -50,7 +50,8 @@ include '../includes/header.php';
         <main class="app-content">
             <div class="page-header">
                 <div>
-                    <h1 class="page-title">Skills Management</h1>
+                    <span class="eyebrow">Workspace</span>
+                    <h1 class="page-title"><span class="accent">Skills</span> Management</h1>
                     <p class="page-subtitle">Add, edit, or remove your skills and expertise levels.</p>
                 </div>
                 <button class="button primary"><i class="fas fa-plus"></i> Add skill</button>

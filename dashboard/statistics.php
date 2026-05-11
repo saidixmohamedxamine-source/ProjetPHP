@@ -71,7 +71,8 @@ include '../includes/header.php';
         <main class="app-content">
             <div class="page-header">
                 <div>
-                    <h1 class="page-title">Statistics Dashboard</h1>
+                    <span class="eyebrow">Insights</span>
+                    <h1 class="page-title"><span class="accent">Statistics</span> dashboard</h1>
                     <p class="page-subtitle">Platform analytics, top mentors, and activity insights.</p>
                 </div>
             </div>

@@ -3,18 +3,22 @@
    ========================================================= */
 
 body.auth-body {
+  overflow: hidden;
+  height: 100vh;
   background:
     radial-gradient(1100px 600px at 80% 0%, rgba(139, 92, 246, 0.12), transparent 60%),
     radial-gradient(900px 500px at 0% 100%, rgba(99, 102, 241, 0.14), transparent 60%),
     var(--bg);
 }
 
+body.auth-body footer { display: none; }
+
 .auth-container {
-  min-height: calc(100vh - var(--topbar-h));
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 48px 20px;
+  padding: 24px 20px;
 }
 
 .auth-card {

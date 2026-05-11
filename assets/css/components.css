@@ -11,15 +11,26 @@
   height: 40px;
   padding: 0 18px;
   border: 1px solid transparent;
-  border-radius: var(--r-md);
+  border-radius: var(--r-sm);
+  font-family: var(--font-sans);
   font-size: 14px;
   font-weight: 600;
   line-height: 1;
+  letter-spacing: 0.01em;
   white-space: nowrap;
   text-decoration: none;
   cursor: pointer;
   transition: background var(--t-fast), border-color var(--t-fast),
               color var(--t-fast), box-shadow var(--t-fast), transform var(--t-fast);
+}
+
+/* Mono CTA variant (matches home page "GET STARTED" style) */
+.button.cta {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: var(--r-xs);
 }
 
 .button:focus-visible {
@@ -413,12 +424,26 @@ textarea:focus,
   margin-bottom: 24px;
 }
 
+.page-header .eyebrow,
+.page-header-row .eyebrow {
+  margin-bottom: 10px;
+}
+
 .page-title {
   font-size: clamp(24px, 2.4vw, 28px);
   font-weight: 700;
   color: var(--text);
   margin: 0 0 6px;
   line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+.page-title .accent {
+  background: linear-gradient(135deg, var(--brand-600), var(--accent-500));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
 .page-subtitle {

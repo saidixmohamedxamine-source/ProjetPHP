@@ -112,7 +112,8 @@ include '../includes/header.php';
         <main class="app-content">
             <div class="page-header">
                 <div>
-                    <h1 class="page-title">Find a mentor</h1>
+                    <span class="eyebrow">Community</span>
+                    <h1 class="page-title">Find a <span class="accent">mentor</span></h1>
                     <p class="page-subtitle">Filter by skills, level, and availability to find the right peer.</p>
                 </div>
                 <input type="text" class="search-input" placeholder="Search by name, skill, or location…" style="max-width:320px;">

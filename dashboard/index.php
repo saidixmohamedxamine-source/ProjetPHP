@@ -66,7 +66,8 @@ include '../includes/header.php';
 
         <main class="app-content">
             <div class="dashboard-top">
-                <h1>Welcome back, <?php echo htmlspecialchars($_SESSION['user_name'] ?? 'User'); ?> 👋</h1>
+                <span class="eyebrow">Workspace overview</span>
+                <h1>Welcome back, <span class="accent"><?php echo htmlspecialchars($_SESSION['user_name'] ?? 'User'); ?></span></h1>
                 <p>Here's a snapshot of your skills, requests, and progress today.</p>
             </div>
 

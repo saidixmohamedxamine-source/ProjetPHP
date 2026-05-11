@@ -100,7 +100,8 @@ include '../includes/header.php';
         <main class="app-content">
             <div class="page-header">
                 <div>
-                    <h1 class="page-title">Badges & Levels</h1>
+                    <span class="eyebrow">Progress</span>
+                    <h1 class="page-title"><span class="accent">Badges</span> &amp; levels</h1>
                     <p class="page-subtitle">Track your progress, earn badges, and level up.</p>
                 </div>
                 <span class="badge primary">Signed in as <?php echo htmlspecialchars($user['username'] ?: trim($user['first_name'] . ' ' . $user['last_name'])); ?></span>

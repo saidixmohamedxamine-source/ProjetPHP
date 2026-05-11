@@ -13,6 +13,7 @@
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  z-index: 1;
 }
 
 .app-sidebar::-webkit-scrollbar { width: 8px; }
@@ -43,17 +44,20 @@
 .sidebar-brand .brand-text { min-width: 0; }
 
 .sidebar-brand .brand-title {
-  font-size: 14px;
-  font-weight: 800;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
   color: var(--text);
   letter-spacing: -0.01em;
-  line-height: 1.1;
+  line-height: 1.15;
 }
 
 .sidebar-brand .brand-subtitle {
-  margin-top: 2px;
-  font-size: 11px;
+  margin-top: 3px;
+  font-family: var(--font-mono);
+  font-size: 10px;
   font-weight: 600;
+  letter-spacing: 0.04em;
   color: var(--text-muted);
 }
 
@@ -63,9 +67,10 @@
 
 .sidebar-label {
   padding: 0 10px 6px;
-  font-size: 11px;
+  font-family: var(--font-mono);
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-soft);
 }
@@ -181,11 +186,22 @@
   margin-bottom: 24px;
 }
 
+.dashboard-top .eyebrow { margin-bottom: 12px; }
+
 .dashboard-top h1 {
-  font-size: clamp(24px, 2.6vw, 28px);
+  font-size: clamp(24px, 2.6vw, 30px);
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 4px;
+  letter-spacing: -0.015em;
+}
+
+.dashboard-top h1 .accent {
+  background: linear-gradient(135deg, var(--brand-600), var(--accent-500));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
 .dashboard-top p { color: var(--text-muted); font-size: 14px; }
@@ -207,9 +223,10 @@
 
 .stat-title,
 .stat-content h3 {
-  font-size: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.10em;
   text-transform: uppercase;
   color: var(--text-muted);
   margin: 0;

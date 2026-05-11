@@ -14,45 +14,54 @@ if (isset($_SESSION['user_id'])) {
 
 $page_title = 'Home';
 
+$title_words   = ['THE', 'SKILL', 'SHARING', 'REVOLUTION', 'FOR', 'STUDENTS'];
+$hero_labels   = [
+    ['icon' => 'fa-bolt',           'label' => 'Share Your Skills'],
+    ['icon' => 'fa-user-graduate',  'label' => 'Find Peer Mentors'],
+    ['icon' => 'fa-award',          'label' => 'Earn Real Badges'],
+];
 include 'includes/header.php';
-include 'includes/navbar.php';
 ?>
 
 <main class="home-page">
-    <section class="hero-section">
-        <span class="eyebrow"><?php echo SITE_SUBTITLE; ?></span>
-        <h1><?php echo SITE_NAME; ?></h1>
-        <p class="lead">Connect with students, share your skills, and learn from peers — all in one place.</p>
-        <p class="hero-description">Built for students who want to grow faster through real, peer-to-peer learning.</p>
+    <header class="hero-header">
+        <a href="<?php echo SITE_URL; ?>index.php" class="hero-brand" aria-label="<?php echo htmlspecialchars(SITE_NAME); ?>">
+            <span class="brand-mark">IS</span>
+            <span class="brand-name"><?php echo SITE_NAME; ?></span>
+        </a>
 
-        <div class="action-buttons">
-            <a href="auth/register.php" class="button primary">
-                <i class="fas fa-rocket"></i> Get started — it's free
-            </a>
-            <a href="auth/login.php" class="button outline">
-                <i class="fas fa-arrow-right-to-bracket"></i> Sign in
+        <div class="hero-header-actions">
+            <a href="auth/login.php" class="hero-link">SIGN IN</a>
+            <a href="auth/register.php" class="hero-cta">
+                GET STARTED <i class="fas fa-arrow-right"></i>
             </a>
         </div>
-    </section>
+    </header>
 
-    <section class="features-section">
-        <h2>Why students choose <?php echo SITE_NAME; ?></h2>
-        <div class="features-grid">
-            <article class="feature-card">
-                <div class="highlight-icon"><i class="fas fa-lightbulb"></i></div>
-                <h3>Share Your Skills</h3>
-                <p>Teach what you're passionate about, get recognized, and earn points and badges.</p>
-            </article>
-            <article class="feature-card">
-                <div class="highlight-icon"><i class="fas fa-user-graduate"></i></div>
-                <h3>Find Mentors</h3>
-                <p>Match with students who already understand the topics you want to improve in.</p>
-            </article>
-            <article class="feature-card">
-                <div class="highlight-icon"><i class="fas fa-people-group"></i></div>
-                <h3>Build Community</h3>
-                <p>Make meaningful learning connections and grow alongside your peers.</p>
-            </article>
+    <section class="hero-section">
+        <h1 class="hero-title">
+            <?php foreach ($title_words as $i => $word): ?>
+                <span class="hero-word" style="--i: <?php echo $i; ?>;"><?php echo $word; ?></span>
+            <?php endforeach; ?>
+        </h1>
+
+        <p class="hero-subtitle">
+            We empower students with peer-driven learning to turn knowledge into real, shareable skills.
+        </p>
+
+        <div class="hero-labels">
+            <?php foreach ($hero_labels as $i => $item): ?>
+                <div class="hero-label" style="--i: <?php echo $i; ?>;">
+                    <i class="fas <?php echo $item['icon']; ?>"></i>
+                    <span><?php echo htmlspecialchars($item['label']); ?></span>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
+        <div class="hero-actions">
+            <a href="auth/register.php" class="hero-cta hero-cta-lg">
+                GET STARTED <i class="fas fa-arrow-right"></i>
+            </a>
         </div>
     </section>
 </main>

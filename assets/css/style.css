@@ -77,6 +77,11 @@
   /* Motion */
   --t-fast: 120ms ease;
   --t-base: 180ms ease;
+
+  /* Fonts */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", Menlo, Consolas, monospace;
 }
 
 /* Reset */
@@ -97,8 +102,7 @@ body {
 }
 
 body {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: 15px;
   line-height: 1.55;
   color: var(--text);
@@ -164,7 +168,7 @@ button {
   padding: 32px 0;
 }
 
-/* Eyebrow / kicker labels */
+/* Eyebrow / kicker labels — mono accent */
 .eyebrow,
 .section-kicker,
 .about-eyebrow {
@@ -174,9 +178,10 @@ button {
   border-radius: var(--r-pill);
   background: var(--brand-50);
   color: var(--brand-700);
-  font-size: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 

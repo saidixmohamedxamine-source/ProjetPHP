@@ -25,7 +25,8 @@ include '../includes/header.php';
         <main class="app-content">
             <div class="page-header">
                 <div>
-                    <h1 class="page-title">Create a help request</h1>
+                    <span class="eyebrow">New request</span>
+                    <h1 class="page-title">Create a <span class="accent">help request</span></h1>
                     <p class="page-subtitle">Post a clear request so other students can connect and help you.</p>
                 </div>
             </div>
