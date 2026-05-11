@@ -58,105 +58,89 @@ $page_title = 'Dashboard';
 include '../includes/header.php';
 ?>
 
-<div class="dashboard-page">
-    <aside class="dashboard-sidebar">
-        <div class="sidebar-brand">
-            <div class="brand-title">ISMO-SkillSwap</div>
-            <div class="brand-subtitle">Student Skill Sharing</div>
-        </div>
+<div class="app-shell">
+    <?php $sidebar_active = 'dashboard'; include '../includes/dashboard_sidebar.php'; ?>
 
-        <nav class="dashboard-menu">
-            <a href="index.php" class="active"><i class="fas fa-home"></i> Dashboard</a>
-            <a href="profile.php"><i class="fas fa-user"></i> Profile</a>
-            <a href="skills.php"><i class="fas fa-book"></i> Skills</a>
-            <a href="help_requests.php"><i class="fas fa-question-circle"></i> Help Requests</a>
-            <a href="create_request.php"><i class="fas fa-plus-circle"></i> Create Request</a>
-            <a href="badges_levels.php"><i class="fas fa-award"></i> Badges &amp; Levels</a>
-            <a href="search.php"><i class="fas fa-search"></i> Search</a>
-            <a href="statistics.php"><i class="fas fa-chart-bar"></i> Statistics</a>
-        </nav>
+    <div class="app-main">
+        <?php $topbar_title = 'Dashboard'; include '../includes/dashboard_topbar.php'; ?>
 
-        <a href="../auth/logout.php" class="sidebar-logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
-    </aside>
+        <main class="app-content">
+            <div class="dashboard-top">
+                <h1>Welcome back, <?php echo htmlspecialchars($_SESSION['user_name'] ?? 'User'); ?> 👋</h1>
+                <p>Here's a snapshot of your skills, requests, and progress today.</p>
+            </div>
 
-    <main class="dashboard-main">
-        <div class="dashboard-top">
-            <div>
-                <h1>Welcome back, <?php echo htmlspecialchars($_SESSION['user_name'] ?? 'User'); ?>!</h1>
-                <p>Here's what's happening with your skills today.</p>
-            </div>
-        </div>
-
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-title">Active Requests</div>
-                <div class="stat-value"><?php echo number_format($active_requests); ?></div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-title">Skills Shared</div>
-                <div class="stat-value"><?php echo number_format($skills_shared); ?></div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-title">Total Points</div>
-                <div class="stat-value"><?php echo number_format($total_points); ?></div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-title">Connections</div>
-                <div class="stat-value"><?php echo number_format($connections); ?></div>
-            </div>
-        </div>
-
-        <div class="dashboard-content-grid">
-            <section class="recent-requests-card card">
-                <div class="content-header">
-                    <div>
-                        <h2>Recent Help Requests</h2>
-                        <p>See your latest requests and stay on top of progress.</p>
-                    </div>
-                    <a href="help_requests.php" class="button small secondary">View All</a>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-title">Active requests</div>
+                    <div class="stat-value"><?php echo number_format($active_requests); ?></div>
                 </div>
-
-                <div class="request-list">
-                    <?php if (!empty($recent_requests)): ?>
-                        <?php foreach ($recent_requests as $request): ?>
-                            <div class="request-item">
-                                <div>
-                                    <h3><?php echo htmlspecialchars($request['title']); ?></h3>
-                                    <p><?php echo htmlspecialchars($request['skill_category']); ?> • <?php echo htmlspecialchars(ucfirst($request['status'])); ?></p>
-                                </div>
-                                <span class="request-time"><?php echo date('M j', strtotime($request['created_at'])); ?></span>
-                            </div>
-                        <?php endforeach; ?>
-                    <?php else: ?>
-                        <div class="request-empty">
-                            <p>No recent requests found. Create a new request to get help.</p>
-                        </div>
-                    <?php endif; ?>
+                <div class="stat-card">
+                    <div class="stat-title">Skills shared</div>
+                    <div class="stat-value"><?php echo number_format($skills_shared); ?></div>
                 </div>
-            </section>
-
-            <aside class="right-panel">
-                <div class="card quick-actions-card">
-                    <h2>Quick Actions</h2>
-                    <button class="button primary">Request Help</button>
-                    <button class="button secondary">Manage Skills</button>
-                    <button class="button outline">Find Mentors</button>
+                <div class="stat-card">
+                    <div class="stat-title">Total points</div>
+                    <div class="stat-value"><?php echo number_format($total_points); ?></div>
                 </div>
+                <div class="stat-card">
+                    <div class="stat-title">Connections</div>
+                    <div class="stat-value"><?php echo number_format($connections); ?></div>
+                </div>
+            </div>
 
-                <div class="card progress-card">
+            <div class="dashboard-content-grid">
+                <section class="card recent-requests-card">
                     <div class="content-header">
                         <div>
-                            <h2>Your Progress</h2>
-                            <p>Level 7 • <?php echo number_format($total_points); ?> / 2,000 XP</p>
+                            <h2>Recent help requests</h2>
+                            <p>See your latest requests and stay on top of progress.</p>
+                        </div>
+                        <a href="help_requests.php" class="button secondary small">View all</a>
+                    </div>
+
+                    <div class="request-list">
+                        <?php if (!empty($recent_requests)): ?>
+                            <?php foreach ($recent_requests as $request): ?>
+                                <div class="request-item">
+                                    <div>
+                                        <h3><?php echo htmlspecialchars($request['title']); ?></h3>
+                                        <p><?php echo htmlspecialchars($request['skill_category']); ?> • <?php echo htmlspecialchars(ucfirst($request['status'])); ?></p>
+                                    </div>
+                                    <span class="request-time"><?php echo date('M j', strtotime($request['created_at'])); ?></span>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <div class="request-empty">
+                                <p>No recent requests yet. Create one to get help from peers.</p>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </section>
+
+                <aside class="right-panel">
+                    <div class="card quick-actions-card">
+                        <h2>Quick actions</h2>
+                        <a href="create_request.php" class="button primary"><i class="fas fa-circle-plus"></i> Request help</a>
+                        <a href="skills.php" class="button secondary"><i class="fas fa-bolt"></i> Manage skills</a>
+                        <a href="search.php" class="button outline"><i class="fas fa-magnifying-glass"></i> Find mentors</a>
+                    </div>
+
+                    <div class="card progress-card">
+                        <div class="content-header">
+                            <div>
+                                <h2>Your progress</h2>
+                                <p>Level 7 • <?php echo number_format($total_points); ?> / 2,000 XP</p>
+                            </div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: <?php echo min(100, round($total_points / 2000 * 100)); ?>%;"></div>
                         </div>
                     </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: <?php echo min(100, round($total_points / 2000 * 100)); ?>%;"></div>
-                    </div>
-                </div>
-            </aside>
-        </div>
-    </main>
+                </aside>
+            </div>
+        </main>
+    </div>
 </div>
 
 <?php include '../includes/footer.php'; ?>

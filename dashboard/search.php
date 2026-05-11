@@ -103,35 +103,19 @@ $page_title = 'Search';
 include '../includes/header.php';
 ?>
 
-<div class="dashboard-page">
-    <aside class="dashboard-sidebar">
-        <div class="sidebar-brand">
-            <div class="brand-title">ISMO-SkillSwap</div>
-            <div class="brand-subtitle">Student Skill Sharing</div>
-        </div>
+<div class="app-shell">
+    <?php $sidebar_active = 'search'; include '../includes/dashboard_sidebar.php'; ?>
 
-        <nav class="dashboard-menu">
-            <a href="index.php"><i class="fas fa-home"></i> Dashboard</a>
-            <a href="profile.php"><i class="fas fa-user"></i> Profile</a>
-            <a href="skills.php"><i class="fas fa-book"></i> Skills</a>
-            <a href="help_requests.php"><i class="fas fa-question-circle"></i> Help Requests</a>
-            <a href="create_request.php"><i class="fas fa-plus-circle"></i> Create Request</a>
-            <a href="badges_levels.php"><i class="fas fa-award"></i> Badges &amp; Levels</a>
-            <a href="search.php" class="active"><i class="fas fa-search"></i> Search</a>
-            <a href="statistics.php"><i class="fas fa-chart-bar"></i> Statistics</a>
-        </nav>
+    <div class="app-main">
+        <?php $topbar_title = 'Find Mentors'; include '../includes/dashboard_topbar.php'; ?>
 
-        <a href="../auth/logout.php" class="sidebar-logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
-    </aside>
-
-    <main class="dashboard-main">
-        <div class="search-page">
-            <div class="page-header-row">
+        <main class="app-content">
+            <div class="page-header">
                 <div>
-                    <h1 class="page-title">Search Mentors</h1>
-                    <p class="page-subtitle">Find the perfect mentor based on skills, level, and availability.</p>
+                    <h1 class="page-title">Find a mentor</h1>
+                    <p class="page-subtitle">Filter by skills, level, and availability to find the right peer.</p>
                 </div>
-                <input type="text" class="search-input" placeholder="Search by name, skill, or location...">
+                <input type="text" class="search-input" placeholder="Search by name, skill, or location…" style="max-width:320px;">
             </div>
 
             <div class="search-grid">
@@ -221,8 +205,8 @@ include '../includes/header.php';
                     </div>
                 </section>
             </div>
-        </div>
-    </main>
+        </main>
+    </div>
 </div>
 
 <?php include '../includes/footer.php';

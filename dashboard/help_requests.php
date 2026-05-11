@@ -83,37 +83,21 @@ $page_title = 'Help Requests';
 include '../includes/header.php';
 ?>
 
-<div class="dashboard-page">
-    <aside class="dashboard-sidebar">
-        <div class="sidebar-brand">
-            <div class="brand-title">ISMO-SkillSwap</div>
-            <div class="brand-subtitle">Student Skill Sharing</div>
-        </div>
+<div class="app-shell">
+    <?php $sidebar_active = 'help_requests'; include '../includes/dashboard_sidebar.php'; ?>
 
-        <nav class="dashboard-menu">
-            <a href="index.php"><i class="fas fa-home"></i> Dashboard</a>
-            <a href="profile.php"><i class="fas fa-user"></i> Profile</a>
-            <a href="skills.php"><i class="fas fa-book"></i> Skills</a>
-            <a href="help_requests.php" class="active"><i class="fas fa-question-circle"></i> Help Requests</a>
-            <a href="create_request.php"><i class="fas fa-plus-circle"></i> Create Request</a>
-            <a href="badges_levels.php"><i class="fas fa-award"></i> Badges &amp; Levels</a>
-            <a href="search.php"><i class="fas fa-search"></i> Search</a>
-            <a href="statistics.php"><i class="fas fa-chart-bar"></i> Statistics</a>
-        </nav>
+    <div class="app-main">
+        <?php $topbar_title = 'Help Requests'; include '../includes/dashboard_topbar.php'; ?>
 
-        <a href="../auth/logout.php" class="sidebar-logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
-    </aside>
-
-    <main class="dashboard-main">
-        <div class="help-requests-page">
-            <div class="help-header-row">
+        <main class="app-content">
+            <div class="page-header">
                 <div>
-                    <h1>Help Requests</h1>
-                    <p>Browse and respond to students seeking assistance.</p>
+                    <h1 class="page-title">Help Requests</h1>
+                    <p class="page-subtitle">Browse and respond to students seeking assistance.</p>
                 </div>
                 <div class="help-actions-row">
-                    <button class="outline-button filter-button"><i class="fas fa-filter"></i> Filters</button>
-                    <a href="create_request.php" class="button primary create-request-button">Create Request</a>
+                    <button class="button secondary"><i class="fas fa-filter"></i> Filters</button>
+                    <a href="create_request.php" class="button primary"><i class="fas fa-plus"></i> Create request</a>
                 </div>
             </div>
 
@@ -143,12 +127,12 @@ include '../includes/header.php';
                                 </div>
                             </div>
                         </div>
-                        <button class="button primary offer-help-btn">Offer Help &rarr;</button>
+                        <button class="offer-help-btn">Offer help <i class="fas fa-arrow-right"></i></button>
                     </article>
                 <?php endforeach; ?>
             </div>
-        </div>
-    </main>
+        </main>
+    </div>
 </div>
 
 <?php include '../includes/footer.php'; ?>

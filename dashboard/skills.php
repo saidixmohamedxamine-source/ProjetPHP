@@ -41,35 +41,19 @@ $page_title = 'Skills';
 include '../includes/header.php';
 ?>
 
-<div class="dashboard-page">
-    <aside class="dashboard-sidebar">
-        <div class="sidebar-brand">
-            <div class="brand-title">ISMO-SkillSwap</div>
-            <div class="brand-subtitle">Student Skill Sharing</div>
-        </div>
+<div class="app-shell">
+    <?php $sidebar_active = 'skills'; include '../includes/dashboard_sidebar.php'; ?>
 
-        <nav class="dashboard-menu">
-            <a href="index.php"><i class="fas fa-home"></i> Dashboard</a>
-            <a href="profile.php"><i class="fas fa-user"></i> Profile</a>
-            <a href="skills.php" class="active"><i class="fas fa-book"></i> Skills</a>
-            <a href="help_requests.php"><i class="fas fa-question-circle"></i> Help Requests</a>
-            <a href="create_request.php"><i class="fas fa-plus-circle"></i> Create Request</a>
-            <a href="badges_levels.php"><i class="fas fa-award"></i> Badges &amp; Levels</a>
-            <a href="search.php"><i class="fas fa-search"></i> Search</a>
-            <a href="statistics.php"><i class="fas fa-chart-bar"></i> Statistics</a>
-        </nav>
+    <div class="app-main">
+        <?php $topbar_title = 'Skills'; include '../includes/dashboard_topbar.php'; ?>
 
-        <a href="../auth/logout.php" class="sidebar-logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
-    </aside>
-
-    <main class="dashboard-main">
-        <div class="skills-management-page">
-            <div class="skills-header">
+        <main class="app-content">
+            <div class="page-header">
                 <div>
-                    <h1>Skills Management</h1>
-                    <p>Add, edit, or remove your skills and expertise levels.</p>
+                    <h1 class="page-title">Skills Management</h1>
+                    <p class="page-subtitle">Add, edit, or remove your skills and expertise levels.</p>
                 </div>
-                <button class="add-skill-btn"><i class="fas fa-plus"></i> Add Skill</button>
+                <button class="button primary"><i class="fas fa-plus"></i> Add skill</button>
             </div>
 
             <div class="skills-grid">
@@ -106,8 +90,8 @@ include '../includes/header.php';
                     </div>
                 <?php endforeach; ?>
             </div>
-        </div>
-    </main>
+        </main>
+    </div>
 </div>
 
 <?php include '../includes/footer.php'; ?>

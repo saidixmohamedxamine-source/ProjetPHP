@@ -16,33 +16,17 @@ $page_title = 'Create Request';
 include '../includes/header.php';
 ?>
 
-<div class="dashboard-page">
-    <aside class="dashboard-sidebar">
-        <div class="sidebar-brand">
-            <div class="brand-title">ISMO-SkillSwap</div>
-            <div class="brand-subtitle">Student Skill Sharing</div>
-        </div>
+<div class="app-shell">
+    <?php $sidebar_active = 'create_request'; include '../includes/dashboard_sidebar.php'; ?>
 
-        <nav class="dashboard-menu">
-            <a href="index.php"><i class="fas fa-home"></i> Dashboard</a>
-            <a href="profile.php"><i class="fas fa-user"></i> Profile</a>
-            <a href="skills.php"><i class="fas fa-book"></i> Skills</a>
-            <a href="help_requests.php"><i class="fas fa-question-circle"></i> Help Requests</a>
-            <a href="create_request.php" class="active"><i class="fas fa-plus-circle"></i> Create Request</a>
-            <a href="badges_levels.php"><i class="fas fa-award"></i> Badges &amp; Levels</a>
-            <a href="search.php"><i class="fas fa-search"></i> Search</a>
-            <a href="statistics.php"><i class="fas fa-chart-bar"></i> Statistics</a>
-        </nav>
+    <div class="app-main">
+        <?php $topbar_title = 'New Request'; include '../includes/dashboard_topbar.php'; ?>
 
-        <a href="../auth/logout.php" class="sidebar-logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
-    </aside>
-
-    <main class="dashboard-main">
-        <section class="create-request-page">
-            <div class="help-header-row">
+        <main class="app-content">
+            <div class="page-header">
                 <div>
-                    <h1>Create Request</h1>
-                    <p>Post a new help request so other students can connect with you.</p>
+                    <h1 class="page-title">Create a help request</h1>
+                    <p class="page-subtitle">Post a clear request so other students can connect and help you.</p>
                 </div>
             </div>
 
@@ -93,12 +77,12 @@ include '../includes/header.php';
                 </div>
 
                 <div class="form-actions-row">
-                    <button type="button" class="button primary submit-request-button"><i class="fas fa-question-circle"></i> Submit Request</button>
+                    <button type="button" class="button primary submit-request-button"><i class="fas fa-paper-plane"></i> Submit request</button>
                     <button type="button" class="button secondary cancel-request-button">Cancel</button>
                 </div>
             </div>
-        </section>
-    </main>
+        </main>
+    </div>
 </div>
 
 <?php include '../includes/footer.php'; ?>

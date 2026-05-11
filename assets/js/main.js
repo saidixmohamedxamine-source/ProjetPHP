@@ -53,3 +53,36 @@ document.querySelectorAll(".offer-help-btn").forEach((btn) => {
     alert("Thank you for offering help!");
   });
 });
+
+// Top navigation menu on small screens
+document.addEventListener("DOMContentLoaded", function () {
+  const navbar = document.querySelector(".navbar");
+  const menuToggle = document.getElementById("menuToggle");
+
+  if (navbar && menuToggle) {
+    menuToggle.addEventListener("click", function () {
+      const isOpen = navbar.classList.toggle("is-open");
+      menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+  }
+
+  // Dashboard sidebar toggle (mobile)
+  const sidebar = document.getElementById("appSidebar");
+  const sidebarToggle = document.getElementById("sidebarToggle");
+  if (sidebar && sidebarToggle) {
+    sidebarToggle.addEventListener("click", function () {
+      sidebar.classList.toggle("is-open");
+    });
+    document.addEventListener("click", function (e) {
+      if (
+        window.innerWidth <= 900 &&
+        sidebar.classList.contains("is-open") &&
+        !sidebar.contains(e.target) &&
+        e.target !== sidebarToggle &&
+        !sidebarToggle.contains(e.target)
+      ) {
+        sidebar.classList.remove("is-open");
+      }
+    });
+  }
+});

@@ -1,30 +1,87 @@
-/* Contact page specific styles */
+/* =========================================================
+   Contact page (rendered inside .app-content)
+   ========================================================= */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.contact-info {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-xl);
+  padding: 22px;
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-info h2 {
+  font-size: 16px;
+  margin-bottom: 18px;
+}
+
+.contact-info-list {
+  display: grid;
+  gap: 16px;
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.contact-info-icon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--brand-50);
+  color: var(--brand-700);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.contact-info-item h3 {
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.contact-info-item p {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0;
+}
 
 .contact-form {
-  max-width: 600px;
-  margin: 0 auto;
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-xl);
+  padding: 22px;
+  box-shadow: var(--shadow-sm);
+  max-width: none;
+  margin: 0;
 }
 
-.form-group {
-  margin-bottom: 20px;
+.contact-form h2 {
+  font-size: 18px;
+  margin-bottom: 4px;
 }
 
-.form-group label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 500;
+.contact-form .contact-form-sub {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin-bottom: 18px;
 }
 
-.form-group input,
-.form-group textarea {
+.contact-form .button.primary {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-family: inherit;
+  height: 44px;
 }
 
-.form-group textarea {
-  resize: vertical;
-  min-height: 120px;
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; }
 }
